@@ -25,16 +25,17 @@ namespace C_Gregslist.Services
       return carData;
     }
 
-    // public Car EditCar(int id, Car carData)
-    // {
-    //   var car = FakeDb.Cars.Find(c => c.Id == id);
-    //   if (car == null)
-    //   {
-    //     throw new Exception("Bad Id");
-    //   }
-    //   FakeDb.Cars.Update(carData);
-    //   return carData;
-    // }
+    public Car EditCar(int id, Car carData)
+    {
+      var car = FakeDb.Cars.Find(c => c.Id == id);
+      if (car == null)
+      {
+        throw new Exception("Bad Id");
+      }
+      FakeDb.Cars.Remove(car);
+      FakeDb.Cars.Add(carData);
+      return carData;
+    }
 
     public Car DeleteCar(int id)
     {
